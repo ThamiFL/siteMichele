@@ -1,0 +1,123 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.servicosSection {
+  background-color: $color-off-white;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+  
+  h2 {
+    color: $color-deep-green;
+  }
+  
+  p {
+    color: $color-text;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.servicoCard {
+  @include card-style;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: $color-sage-green;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  
+  &:hover::before {
+    transform: scaleX(1);
+  }
+  
+  h3 {
+    margin-bottom: 1rem;
+    color: $color-deep-green;
+    font-size: 1.5rem;
+  }
+  
+  p {
+    color: $color-text;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+}
+
+.cardIcon {
+  font-size: 2.5rem;
+  color: $color-sage-green;
+  margin-bottom: 1.5rem;
+}
+
+.beneficiosList {
+  margin-bottom: 2rem;
+  
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: $color-dark-gray;
+    
+    &::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: $color-sage-green;
+      font-weight: bold;
+    }
+  }
+}
+
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: $color-deep-green;
+  font-weight: 600;
+  transition: $transition-default;
+  
+  &:hover {
+    color: $color-sage-green;
+    gap: 0.8rem; // Efeito de seta se movendo
+  }
+}
+
+.saibaMaisBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: -deep-green;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  text-decoration: none;
+  transition: -default;
+  &:hover {
+    color: -sage-green;
+    transform: translateX(5px);
+  }
+}

@@ -1,0 +1,124 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.depoimentosSection {
+  padding: 5rem 0;
+  background-color: $color-white;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  
+  h2 {
+    color: $color-deep-green;
+  }
+}
+
+.carouselWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  
+  @include mobile {
+    gap: 1rem;
+  }
+}
+
+.navButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: $color-sage-green;
+  cursor: pointer;
+  transition: $transition-default;
+  padding: 0.5rem;
+  
+  &:hover {
+    color: $color-deep-green;
+    transform: scale(1.1);
+  }
+}
+
+.carouselContainer {
+  width: 100%;
+  max-width: 600px;
+  overflow: hidden; // Previne scrollbar durante animação
+}
+
+.depoimentoCard {
+  @include card-style;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background-color: $color-off-white;
+  box-shadow: none;
+  
+  .quoteIcon {
+    font-size: 2rem;
+    color: rgba($color-sage-green, 0.3);
+  }
+  
+  .stars {
+    color: #FFD700; // Dourado para as estrelas
+    display: flex;
+    gap: 0.2rem;
+  }
+  
+  .texto {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: $color-text;
+    margin: 1rem 0;
+  }
+  
+  .authorInfo {
+    h4 {
+      color: $color-deep-green;
+      margin-bottom: 0.2rem;
+    }
+    
+    span {
+      font-size: 0.9rem;
+      color: $color-sage-green;
+    }
+  }
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: $color-light-gray;
+    border: none;
+    cursor: pointer;
+    transition: $transition-default;
+    
+    &.active {
+      background-color: $color-deep-green;
+      transform: scale(1.2);
+    }
+  }
+}
+
+.depoimentoCardImage {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.depoImg {
+  max-width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}

@@ -1,0 +1,65 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.beneficiosSection {
+  padding: 5rem 0;
+  background-color: $color-off-white;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  
+  h2 {
+    color: $color-deep-green;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.beneficioCard {
+  @include card-style;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  
+  &:hover {
+    box-shadow: $shadow-hover;
+    
+    .iconWrapper {
+      background-color: $color-deep-green;
+      color: $color-white;
+    }
+  }
+  
+  p {
+    margin: 0;
+    font-weight: 500;
+    color: $color-deep-green;
+  }
+}
+
+.iconWrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba($color-sage-green, 0.2);
+  color: $color-sage-green;
+  @include flex-center;
+  flex-shrink: 0;
+  transition: $transition-default;
+}

@@ -1,0 +1,113 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 80px; // compensa o header fixo
+  background-color: $color-off-white;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  
+  @include tablet {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 3rem;
+  }
+}
+
+.heroContent {
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: $color-deep-green;
+    
+    span {
+      color: $color-sage-green;
+    }
+    
+    @include mobile {
+      font-size: 2.5rem;
+    }
+  }
+  
+  p {
+    font-size: 1.1rem;
+    color: $color-text;
+    margin-bottom: 2rem;
+    max-width: 90%;
+    
+    @include tablet {
+      margin: 0 auto 2rem;
+    }
+  }
+}
+
+.heroButtons {
+  display: flex;
+  gap: 1rem;
+  
+  @include tablet {
+    justify-content: center;
+  }
+  
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.heroImage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  max-width: 450px;
+  height: 550px;
+  border-radius: 20px 20px 20px 20px;
+  overflow: hidden;
+  box-shadow: $shadow-hover;
+  position: relative;
+  z-index: 2;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.decorator1 {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: $color-beige;
+  z-index: 1;
+}
+
+.decorator2 {
+  position: absolute;
+  bottom: -30px;
+  left: -20px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: $color-sage-green;
+  opacity: 0.3;
+  z-index: 1;
+}

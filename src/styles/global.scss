@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import './variables.scss';
+@import './mixins.scss';
+
+// Reset Global
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; // Scroll extremamente suave
+}
+
+body {
+  font-family: $font-primary;
+  color: $color-text;
+  background-color: $color-off-white;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: $font-primary;
+  background: none;
+}
+
+// Foco Visível para Acessibilidade
+*:focus-visible {
+  outline: 2px solid $color-sage-green;
+  outline-offset: 2px;
+}
+
+// Containers
+.container {
+  width: 100%;
+  max-width: $bp-desktop;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+// Estilo de botões base globais
+.btn-primary {
+  background-color: $color-accent;
+  color: $color-white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: $transition-default;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  
+  &:hover {
+    background-color: lighten($color-accent, 10%);
+    box-shadow: $shadow-light;
+    transform: translateY(-2px);
+  }
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: $color-deep-green;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 1rem;
+  border: 1px solid $color-deep-green;
+  transition: $transition-default;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  
+  &:hover {
+    background-color: $color-deep-green;
+    color: $color-white;
+  }
+}
+
+// Headers e Títulos
+h1, h2, h3, h4, h5, h6 {
+  color: $color-dark-gray;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  
+  @include mobile {
+    font-size: 2rem;
+  }
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+// Espaçamentos das Seções
+section {
+  padding: 5rem 0;
+  
+  @include mobile {
+    padding: 3rem 0;
+  }
+}

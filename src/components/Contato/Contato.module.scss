@@ -1,0 +1,77 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.contatoSection {
+  padding: 5rem 0;
+  background-color: $color-white;
+}
+
+.contatoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.infoColumn {
+  text-align: center;
+  max-width: 800px;
+  
+  h2 {
+    color: $color-deep-green;
+  }
+  
+  p {
+    color: $color-text;
+    margin-bottom: 3rem;
+    font-size: 1.05rem;
+  }
+}
+
+.contactDetails {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  
+  @include tablet {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+.contactItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  
+  .iconBox {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background-color: rgba($color-sage-green, 0.2);
+    color: $color-deep-green;
+    font-size: 1.5rem;
+    @include flex-center;
+  }
+  
+  h4 {
+    color: $color-deep-green;
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+  }
+  
+  a, p {
+    color: $color-text;
+    margin: 0;
+    transition: $transition-default;
+    font-size: 0.95rem;
+  }
+  
+  a:hover {
+    color: $color-sage-green;
+  }
+}

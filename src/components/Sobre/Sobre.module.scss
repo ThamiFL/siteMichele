@@ -1,0 +1,257 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.sobreSection {
+  background-color: $color-white;
+}
+
+.sobreContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  
+  @include tablet {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.imageColumn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px; // Aumentado para equilibrar com o texto
+  border-radius: 20px;
+  overflow: visible; // Para permitir que a badge saia do limite da imagem
+  
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: $shadow-hover;
+    display: block;
+  }
+}
+
+.experienceBadge {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  background-color: $color-deep-green;
+  color: $color-white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: $shadow-hover;
+  text-align: center;
+  
+  span {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    color: $color-sage-green;
+  }
+  
+  p {
+    font-size: 0.9rem;
+    margin: 0;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+}
+
+.textColumn {
+  .title {
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    
+    span {
+      color: $color-sage-green;
+    }
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+    color: $color-deep-green;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+  
+  .content {
+    margin-bottom: 2rem;
+    p {
+      color: $color-text;
+      font-size: 0.95rem; // Texto levemente menor para não ficar gigantesco
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
+    }
+  }
+}
+
+.cardsContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.infoCard {
+  @include card-style;
+  padding: 1.2rem;
+  background-color: $color-off-white;
+  box-shadow: none;
+  
+  h4 {
+    color: $color-deep-green;
+    margin-bottom: 0.5rem;
+    font-size: 1rem; // Título menor
+  }
+}
+
+.quickServices {
+  margin-top: 2rem;
+  text-align: left;
+  width: 100%;
+  h4 {
+    color: $color-deep-green;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+}
+
+.serviceButtons {
+  display: grid;
+  grid-template-columns: 1fr 1fr; // Botões lado a lado para economizar espaço
+  gap: 0.8rem;
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+  
+  a {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+}
+
+.formacaoList {
+  text-align: left;
+  padding-left: 1.5rem;
+  li {
+    margin-bottom: 0.4rem;
+    color: $color-text;
+    line-height: 1.4;
+    font-size: 0.85rem; // Formação acadêmica menor para economizar espaço vertical
+  }
+}
+
+/* NOVOS ESTILOS PARA O CONTEÚDO EXTENDIDO DO SOBRE */
+
+.quoteBox {
+  background-color: $color-off-white;
+  border-left: 4px solid $color-deep-green;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: $color-deep-green;
+  line-height: 1.6;
+}
+
+.fullWidthContent {
+  margin-top: 4rem;
+  border-top: 1px solid $color-light-gray;
+  padding-top: 3rem;
+  
+  h3 {
+    color: $color-deep-green;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    margin-top: 3rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background-color: $color-sage-green;
+    }
+  }
+
+  h4 {
+    color: $color-sage-green;
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: $color-text;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.bulletList {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 2rem;
+  
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: $color-text;
+    line-height: 1.6;
+    font-size: 1.05rem;
+    
+    &::before {
+      content: '•';
+      color: $color-deep-green;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+}
+
+.gridList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pillarCard {
+  background-color: $color-white;
+  border: 1px solid $color-light-gray;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: $shadow-light;
+  
+  h4 {
+    margin-top: 0;
+    color: $color-deep-green;
+  }
+  
+  p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+  }
+}

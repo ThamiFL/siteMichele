@@ -1,0 +1,265 @@
+@import '../styles/variables.scss';
+@import '../styles/mixins.scss';
+
+.pageSection {
+  padding: 8rem 0 5rem 0;
+  background-color: $color-off-white;
+  min-height: 100vh;
+}
+
+.pageTitle {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: $color-deep-green;
+  font-family: $font-secondary;
+  font-size: 2.5rem;
+  
+  @include mobile {
+    font-size: 2rem;
+  }
+}
+
+.pageContent {
+  background-color: $color-white;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: $shadow-light;
+  
+  @include mobile {
+    padding: 1.5rem;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    color: $color-text;
+    font-size: 1.1rem;
+  }
+
+  h3 {
+    color: $color-deep-green;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  h4 {
+    color: $color-sage-green;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+  }
+}
+
+.photoPlaceholder {
+  width: 100%;
+  height: 300px;
+  background-color: $color-light-gray;
+  border: 2px dashed #bbb;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  color: #777;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.photoImage {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: $shadow-light;
+}
+
+.ctaContainer {
+  margin-top: 3rem;
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid $color-light-gray;
+  
+  p {
+    font-weight: bold;
+    color: $color-deep-green;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.listItems {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+  
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+    color: $color-text;
+    
+    &::before {
+      content: '•';
+      color: $color-deep-green;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+}
+
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    
+    th, td {
+      border: 1px solid $color-light-gray;
+      padding: 1rem;
+      text-align: left;
+    }
+    
+    th {
+      background-color: $color-deep-green;
+      color: $color-white;
+      font-weight: 600;
+    }
+    
+    tr:nth-child(even) {
+      background-color: $color-off-white;
+    }
+  }
+}
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  margin: 2.5rem 0;
+  
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    box-shadow: $shadow-light;
+  }
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin: 3rem 0;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.galleryCard {
+  background: $color-white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: $shadow-light;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $color-light-gray;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .imgWrapper {
+    width: 100%;
+    height: 160px;
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid $color-light-gray;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    span {
+      color: #999;
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 1rem;
+    }
+  }
+
+  .caption {
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: $color-text;
+    font-weight: 500;
+  }
+}
+
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 3rem 0;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonialImage {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: $shadow-light;
+    object-fit: contain;
+    background: #f9f9f9;
+  }
+}
+
+.faqSection {
+  margin-top: 4rem;
+  border-top: 1px solid $color-light-gray;
+  padding-top: 3rem;
+
+  h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .faqItem {
+    margin-bottom: 2rem;
+    
+    h4 {
+      color: $color-deep-green;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    p {
+      color: $color-text;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+  }
+}

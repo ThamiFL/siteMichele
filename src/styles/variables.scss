@@ -1,0 +1,34 @@
+// Paleta de Cores Elegante
+// Paleta Principal
+$color-navy: #172439; // Azul marinho (top right)
+$color-wine: #632129; // Vinho (top left)
+$color-beige-nude: #d2b5a1; // Bege nude (bottom left)
+$color-slate: #485a6e; // Azul ardósia (bottom right)
+
+// Mapeamento para as variáveis usadas no site
+$color-white: #ffffff;
+$color-off-white: #faf9f6; // Fundo suave
+$color-beige: #f5f0e6; // Fundo de seções secundárias
+$color-sage-green: $color-beige-nude; // Tom bege/nude assumindo a cor de cards
+$color-deep-green: $color-navy; // Azul marinho assumindo como cor principal
+$color-accent: $color-wine; // Vinho como cor de destaque
+$color-light-gray: #e0e0e0;
+$color-dark-gray: #333333;
+$color-text: $color-navy; // Texto em azul escuro para manter a elegância
+
+// Tipografia
+$font-primary: "Poppins", sans-serif;
+$font-secondary: "Manrope", sans-serif;
+
+// Sombras Suaves
+$shadow-light: 0 4px 20px rgba(0, 0, 0, 0.05);
+$shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.1);
+
+// Transições
+$transition-default: all 0.3s ease;
+
+// Quebras de Linha (Breakpoints)
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-laptop: 1024px;
+$bp-desktop: 1200px;

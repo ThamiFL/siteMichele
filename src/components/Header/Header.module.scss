@@ -1,0 +1,113 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px 0;
+  z-index: 999;
+  transition: $transition-default;
+  background-color: transparent;
+
+  &.scrolled {
+    padding: 12px 0;
+    background-color: rgba($color-white, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: $shadow-light;
+  }
+}
+
+.headerContainer {
+  @include flex-between;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $color-deep-green;
+  
+  span {
+    color: $color-sage-green;
+    font-weight: 300;
+  }
+}
+
+.desktopNav {
+  @include flex-center;
+  gap: 2rem;
+
+  @include mobile {
+    display: none; // Esconde no mobile
+  }
+
+  .navItems {
+    @include flex-center;
+    gap: 1.5rem;
+
+    li a {
+      color: $color-text;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $color-deep-green;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background-color: $color-sage-green;
+        left: 0;
+        bottom: -4px;
+        transition: width 0.3s ease;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.mobileToggle {
+  display: none;
+  font-size: 28px;
+  color: $color-deep-green;
+
+  @include mobile {
+    display: block;
+  }
+}
+
+.mobileNav {
+  display: none;
+
+  @include mobile {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: $color-white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    padding: 1rem 20px 2rem;
+    
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+      
+      li a {
+        font-size: 1.1rem;
+        color: $color-text;
+        font-weight: 500;
+      }
+    }
+  }
+}
