@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
 import { informacoes } from '../../data/informacoes';
+import logoHeader from '../../assets/logo-psicologia-carreira.png';
 import styles from './Header.module.scss';
 
 const Header = () => {
@@ -49,10 +50,14 @@ const Header = () => {
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.headerContainer}`}>
         
-        {/* Logo */}
-        <Link to="/" className={styles.logo}>
-          Michele<span>Gonçalves</span>
-        </Link>
+        {/* Logo com imagem antes do nome (sem link) */}
+        <div className={styles.logo}>
+          <img src={logoHeader} alt="Psicologia e Carreira Logo" className={styles.logoImg} />
+          <div className={styles.logoText}>
+            Michele<span>Gonçalves</span>
+          </div>
+        </div>
+
 
         {/* Desktop Menu */}
         <nav className={styles.desktopNav}>
@@ -74,13 +79,16 @@ const Header = () => {
         </nav>
 
         {/* Mobile Toggle */}
-        <button 
+        <motion.button 
           className={styles.mobileToggle} 
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Abrir Menu"
+          whileTap={{ scale: 0.88 }}
+          animate={{ rotate: menuOpen ? 90 : 0 }}
+          transition={{ duration: 0.2 }}
+          aria-label="Menu"
         >
           {menuOpen ? <HiX /> : <HiMenuAlt3 />}
-        </button>
+        </motion.button>
 
       </div>
 
@@ -89,27 +97,63 @@ const Header = () => {
         {menuOpen && (
           <motion.nav 
             className={styles.mobileNav}
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
           >
-            <ul>
-              {navLinks.map((link, idx) => (
-                <li key={idx}>
-                  {link.path.startsWith('/#') ? (
-                    <a href={link.path} onClick={() => setMenuOpen(false)}>{link.name}</a>
-                  ) : (
-                    <Link to={link.path}>{link.name}</Link>
-                  )}
-                </li>
-              ))}
-              <li>
-                <a href={urlWhatsApp} target="_blank" rel="noreferrer" className="btn-primary">
+            <motion.ul
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: { staggerChildren: 0.06, delayChildren: 0.05 }
+                }
+              }}
+            >
+              {navLinks.map((link, idx) => {
+                const isActive = location.pathname === link.path || (link.path.startsWith('/#') && location.hash === link.path.replace('/', ''));
+                return (
+                  <motion.li 
+                    key={idx}
+                    variants={{
+                      hidden: { opacity: 0, y: -10 },
+                      visible: { opacity: 1, y: 0, transition: { duration: 0.25 } }
+                    }}
+                  >
+                    {link.path.startsWith('/#') ? (
+                      <a 
+                        href={link.path} 
+                        onClick={() => setMenuOpen(false)}
+                        className={isActive ? styles.activeLink : ''}
+                      >
+                        {link.name}
+                      </a>
+                    ) : (
+                      <Link 
+                        to={link.path}
+                        className={isActive ? styles.activeLink : ''}
+                      >
+                        {link.name}
+                      </Link>
+                    )}
+                  </motion.li>
+                );
+              })}
+              <motion.li
+                variants={{
+                  hidden: { opacity: 0, y: -10 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.25 } }
+                }}
+                style={{ width: '100%', display: 'flex', justifyContent: 'center', marginTop: '0.5rem' }}
+              >
+                <a href={urlWhatsApp} target="_blank" rel="noreferrer" className={styles.mobileBtn}>
                   Agende sua sessão
                 </a>
-              </li>
-            </ul>
+              </motion.li>
+            </motion.ul>
           </motion.nav>
         )}
       </AnimatePresence>

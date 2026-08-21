@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaWhatsapp, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaEnvelope, FaWhatsapp } from 'react-icons/fa';
 import { informacoes } from '../../data/informacoes';
 import styles from './Contato.module.scss';
 
@@ -36,7 +36,7 @@ const Contato = () => {
                     target="_blank" 
                     rel="noreferrer" 
                     className="btn-primary" 
-                    style={{ marginTop: '0.5rem', display: 'inline-block', padding: '0.5rem 1.5rem', fontSize: '0.9rem' }}
+                    style={{ marginTop: '0.5rem', display: 'inline-block', padding: '0.5rem 1.5rem', fontSize: '0.9rem', color: '#ffffff' }}
                   >
                     Enviar Mensagem
                   </a>

@@ -1,10 +1,58 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaChevronLeft, FaChevronRight, FaChevronDown } from 'react-icons/fa';
 import { informacoes } from '../data/informacoes';
+import desenvolvimentoImg from '../assets/desenvolvimento-hd.jpg';
 import styles from './PageTemplate.module.scss';
 
+// Import das imagens de depoimentos empresariais
+import depoEmpresarial from '../assets/DepoEmpresarial.jpeg';
+import depoEmpresarial2 from '../assets/DepoEmpresarial2.jpeg';
+
+const faqEmpresas = [
+  {
+    id: 1,
+    pergunta: "Como escolher uma palestrante para empresas que realmente gere resultados?",
+    resposta: "A escolha de uma palestrante corporativa vai além de uma apresentação inspiradora. É essencial contratar uma profissional que compreenda o comportamento humano, a cultura organizacional e os desafios específicos da sua empresa, gerando transformações permanentes."
+  },
+  {
+    id: 2,
+    pergunta: "Quais são os temas de palestras corporativas mais procurados?",
+    resposta: "Os temas mais solicitados incluem: Saúde Mental nas Empresas, NR-1 e Riscos Psicossociais, Inteligência Emocional, Liderança Humanizada, Comunicação Assertiva, Gestão de Conflitos, Trabalho em Equipe e Prevenção do Burnout."
+  },
+  {
+    id: 3,
+    pergunta: "As palestras podem ser personalizadas para a realidade da empresa?",
+    resposta: "Sim! Antes do evento, realizamos um alinhamento das necessidades da empresa para adaptar o conteúdo aos desafios estratégicos das lideranças, equipes e exigências de saúde mental no trabalho."
+  }
+];
+
+const depoimentosFotos = [depoEmpresarial, depoEmpresarial2];
+
 const DesenvolvimentoEmpresas = () => {
+  const [currentFotoIndex, setCurrentFotoIndex] = useState(0);
+  const [activeFaqIndex, setActiveFaqIndex] = useState(null);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentFotoIndex((prev) => (prev + 1) % depoimentosFotos.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const handleNextFoto = () => {
+    setCurrentFotoIndex((prev) => (prev + 1) % depoimentosFotos.length);
+  };
+
+  const handlePrevFoto = () => {
+    setCurrentFotoIndex((prev) => (prev - 1 + depoimentosFotos.length) % depoimentosFotos.length);
+  };
+
+  const toggleFaq = (index) => {
+    setActiveFaqIndex(activeFaqIndex === index ? null : index);
+  };
+
   const urlWhatsApp = `https://wa.me/${informacoes.whatsapp}?text=${encodeURIComponent("Olá, gostaria de conversar sobre palestras e treinamentos para a minha empresa.")}`;
 
   return (
@@ -16,19 +64,35 @@ const DesenvolvimentoEmpresas = () => {
 
       <section className={styles.pageSection}>
         <div className="container">
-          <motion.h1 
-            className={styles.pageTitle}
-            initial={{ opacity: 0, y: -20 }}
+          
+          {/* TOPO: TEXTO DE UM LADO, IMAGEM DO OUTRO */}
+          <motion.div 
+            className={styles.serviceHeroCard}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            Desenvolvimento Humano para Empresas
-          </motion.h1>
+            <div className={styles.serviceHeroText}>
+              <span className={styles.eyebrow}>Soluções Corporativas</span>
+              <h1 className={styles.heroTitle}>Desenvolvimento Humano para Empresas</h1>
+              <p>
+                Palestras Corporativas e Treinamentos para Empresas que Desenvolvem Pessoas, Fortalecem Lideranças e Transformam Resultados.
+              </p>
+              <p>
+                Como psicóloga organizacional e especialista em comportamento humano, desenvolvo programas e palestras que unem a Psicologia ao ambiente corporativo.
+              </p>
+            </div>
+
+            <div className={styles.serviceHeroImage}>
+              <img src={desenvolvimentoImg} alt="Desenvolvimento Humano para Empresas" />
+            </div>
+          </motion.div>
 
           <motion.div 
             className={styles.pageContent}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
           >
             <p style={{ textAlign: 'center', fontSize: '1.2rem', color: 'var(--color-primary)', fontWeight: '500', marginBottom: '2rem' }}>
               Palestras Corporativas para Empresas que Desenvolvem Pessoas, Fortalecem Lideranças e Transformam Resultados
@@ -94,28 +158,91 @@ const DesenvolvimentoEmpresas = () => {
               </a>
             </div>
 
+            {/* Seção de Depoimentos Corporativos em Fotos */}
+            <h3 style={{ textAlign: 'center', marginTop: '4rem' }}>
+              O que as empresas e parceiros dizem
+            </h3>
+
+            <div className={styles.carouselWrapper}>
+              <button
+                className={styles.navButton}
+                onClick={handlePrevFoto}
+                aria-label="Depoimento Anterior"
+              >
+                <FaChevronLeft />
+              </button>
+
+              <div className={styles.carouselContainer}>
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentFotoIndex}
+                    src={depoimentosFotos[currentFotoIndex]}
+                    alt={`Depoimento empresarial ${currentFotoIndex + 1}`}
+                    className={styles.carouselImage}
+                    initial={{ opacity: 0, x: 40 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -40 }}
+                    transition={{ duration: 0.4 }}
+                  />
+                </AnimatePresence>
+              </div>
+
+              <button
+                className={styles.navButton}
+                onClick={handleNextFoto}
+                aria-label="Próximo Depoimento"
+              >
+                <FaChevronRight />
+              </button>
+            </div>
+
+            <div className={styles.dots}>
+              {depoimentosFotos.map((_, idx) => (
+                <button
+                  key={idx}
+                  className={`${styles.dot} ${idx === currentFotoIndex ? styles.active : ''}`}
+                  onClick={() => setCurrentFotoIndex(idx)}
+                  aria-label={`Ir para depoimento ${idx + 1}`}
+                />
+              ))}
+            </div>
+
+            {/* SANFONA INTERATIVA FAQ (IGUAL À PÁGINA INICIAL) */}
             <div className={styles.faqSection}>
-              <h3>Perguntas Frequentes</h3>
+              <h3>Perguntas Frequentes (FAQ)</h3>
               
-              <div className={styles.faqItem}>
-                <h4>Como escolher uma palestrante para empresas que realmente gere resultados?</h4>
-                <p>
-                  A escolha de uma palestrante corporativa vai além de uma apresentação inspiradora. O mais importante é contratar uma profissional que compreenda o comportamento humano, a cultura organizacional e os desafios específicos da sua empresa. O objetivo é gerar mudanças que permaneçam após o evento.
-                </p>
-              </div>
-
-              <div className={styles.faqItem}>
-                <h4>Quais são os temas de palestras corporativas mais procurados?</h4>
-                <p>
-                  Os temas mais solicitados incluem: Saúde Mental nas Empresas, Saúde Mental e NR-1, Inteligência Emocional, Liderança Humanizada, Comunicação Assertiva, Gestão de Conflitos, Desenvolvimento de Competências Comportamentais, Trabalho em Equipe, Engajamento e Prevenção do Burnout.
-                </p>
-              </div>
-
-              <div className={styles.faqItem}>
-                <h4>As palestras podem ser personalizadas para a realidade da empresa?</h4>
-                <p>
-                  Sim. Antes da realização do trabalho, é feita uma análise das necessidades da empresa para que o conteúdo esteja alinhado aos desafios das lideranças, das equipes e às demandas relacionadas à saúde mental no trabalho e NR-1.
-                </p>
+              <div className={styles.accordion}>
+                {faqEmpresas.map((item, index) => (
+                  <div 
+                    key={item.id} 
+                    className={`${styles.accordionItem} ${activeFaqIndex === index ? styles.active : ''}`}
+                  >
+                    <button 
+                      className={`${styles.accordionHeader} ${activeFaqIndex === index ? styles.activeHeader : ''}`} 
+                      onClick={() => toggleFaq(index)}
+                      aria-expanded={activeFaqIndex === index}
+                    >
+                      {item.pergunta}
+                      <FaChevronDown className={styles.icon} />
+                    </button>
+                    
+                    <AnimatePresence>
+                      {activeFaqIndex === index && (
+                        <motion.div 
+                          className={styles.accordionContent}
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <div className={styles.accordionInner}>
+                            <p>{item.resposta}</p>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ))}
               </div>
             </div>
 

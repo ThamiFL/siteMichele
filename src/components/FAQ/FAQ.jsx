@@ -27,7 +27,7 @@ const FAQ = () => {
               className={`${styles.accordionItem} ${activeIndex === index ? styles.active : ''}`}
             >
               <button 
-                className={styles.accordionHeader} 
+                className={`${styles.accordionHeader} ${activeIndex === index ? styles.activeHeader : ''}`} 
                 onClick={() => toggleAccordion(index)}
                 aria-expanded={activeIndex === index}
               >

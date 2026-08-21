@@ -1,0 +1,71 @@
+.contatoSection {
+  padding: 5rem 0;
+  background-color: #ffffff;
+}
+
+.contatoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.infoColumn {
+  text-align: center;
+  max-width: 800px;
+}
+.infoColumn h2 {
+  color: #172439;
+}
+.infoColumn p {
+  color: #172439;
+  margin-bottom: 3rem;
+  font-size: 1.05rem;
+}
+
+.contactDetails {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+@media (max-width: 1023px) {
+  .contactDetails {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+.contactItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+.contactItem .iconBox {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background-color: rgba(210, 181, 161, 0.2);
+  color: #172439;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contactItem h4 {
+  color: #172439;
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+}
+.contactItem a, .contactItem p {
+  color: #172439;
+  margin: 0;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+.contactItem a:hover {
+  color: #d2b5a1;
+}/*# sourceMappingURL=Contato.module.css.map */

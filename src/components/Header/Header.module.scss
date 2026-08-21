@@ -24,15 +24,41 @@
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: $color-deep-green;
-  
-  span {
-    color: $color-sage-green;
-    font-weight: 300;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  cursor: default;
+  user-select: none;
+
+  .logoImg {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    transition: height 0.3s ease;
+    cursor: default;
+  }
+
+  .logoText {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: $color-deep-green;
+    line-height: 1.2;
+    cursor: default;
+
+    span {
+      color: $color-sage-green;
+      font-weight: 300;
+    }
   }
 }
+
+.header.scrolled {
+  .logoImg {
+    height: 40px;
+  }
+}
+
 
 .desktopNav {
   @include flex-center;
@@ -77,10 +103,16 @@
 .mobileToggle {
   display: none;
   font-size: 28px;
-  color: $color-deep-green;
+  color: $color-navy;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
 
   @include mobile {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -93,21 +125,70 @@
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: $color-white;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    padding: 1rem 20px 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 12px 30px rgba(23, 36, 57, 0.08);
+    border-bottom: 1px solid rgba(23, 36, 57, 0.06);
+    padding: 1.2rem 20px 2rem 20px;
+    overflow: hidden;
     
     ul {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1.1rem;
       align-items: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
       
-      li a {
-        font-size: 1.1rem;
-        color: $color-text;
-        font-weight: 500;
+      li {
+        width: 100%;
+        text-align: center;
+
+        a {
+          display: inline-block;
+          font-size: 1.05rem;
+          color: #3b4c5e;
+          font-weight: 500;
+          padding: 0.5rem 1.4rem;
+          border-radius: 20px;
+          transition: all 0.25s ease;
+          text-decoration: none;
+
+          &:hover {
+            color: $color-navy;
+            background-color: rgba(142, 169, 147, 0.12);
+          }
+
+          &.activeLink {
+            color: $color-navy;
+            background-color: rgba(142, 169, 147, 0.2);
+            font-weight: 700;
+          }
+        }
       }
     }
   }
 }
+
+.mobileBtn {
+  background-color: $color-navy !important;
+  color: #ffffff !important;
+  padding: 0.85rem 2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  width: 85%;
+  max-width: 280px;
+  box-shadow: 0 4px 15px rgba(23, 36, 57, 0.18);
+  transition: all 0.3s ease;
+
+  &:hover, &:active {
+    background-color: lighten($color-navy, 8%) !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+  }
+}
+

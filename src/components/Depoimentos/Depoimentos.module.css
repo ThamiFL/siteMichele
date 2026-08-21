@@ -1,0 +1,123 @@
+.depoimentosSection {
+  padding: 5rem 0;
+  background-color: #ffffff;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.header h2 {
+  color: #172439;
+}
+
+.carouselWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+@media (max-width: 767px) {
+  .carouselWrapper {
+    gap: 1rem;
+  }
+}
+
+.navButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #d2b5a1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+}
+.navButton:hover {
+  color: #172439;
+  transform: scale(1.1);
+}
+
+.carouselContainer {
+  width: 100%;
+  max-width: 600px;
+  overflow: hidden;
+}
+
+.depoimentoCard {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+.depoimentoCard:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+.depoimentoCard {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background-color: #faf9f6;
+  box-shadow: none;
+}
+.depoimentoCard .quoteIcon {
+  font-size: 2rem;
+  color: rgba(210, 181, 161, 0.3);
+}
+.depoimentoCard .stars {
+  color: #FFD700;
+  display: flex;
+  gap: 0.2rem;
+}
+.depoimentoCard .texto {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #172439;
+  margin: 1rem 0;
+}
+.depoimentoCard .authorInfo h4 {
+  color: #172439;
+  margin-bottom: 0.2rem;
+}
+.depoimentoCard .authorInfo span {
+  font-size: 0.9rem;
+  color: #d2b5a1;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+.dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.dots .dot.active {
+  background-color: #172439;
+  transform: scale(1.2);
+}
+
+.depoimentoCardImage {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.depoImg {
+  max-width: 100%;
+  max-height: 500px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}/*# sourceMappingURL=Depoimentos.module.css.map */

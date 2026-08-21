@@ -64,14 +64,23 @@
     margin-bottom: 0.2rem;
   }
   
-  a, p {
+  a:not(:global(.btn-primary)), p {
     color: $color-text;
     margin: 0;
     transition: $transition-default;
     font-size: 0.95rem;
+
+    &:hover {
+      color: $color-sage-green;
+    }
   }
-  
-  a:hover {
-    color: $color-sage-green;
+
+  :global(.btn-primary) {
+    color: #ffffff !important;
+    
+    &:hover {
+      color: #ffffff !important;
+    }
   }
 }
+

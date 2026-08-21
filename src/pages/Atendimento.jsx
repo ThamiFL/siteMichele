@@ -1,11 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaChevronDown } from 'react-icons/fa';
 import { informacoes } from '../data/informacoes';
+import atendimentoImg from '../assets/atendimento-hd.jpg';
 import styles from './PageTemplate.module.scss';
 
+const faqAtendimento = [
+  {
+    id: 1,
+    pergunta: "Como funciona o atendimento psicológico online?",
+    resposta: "As sessões ocorrem semanalmente com horário pré-agendado por videochamada através do Google Meeting. Para o atendimento, você precisa de uma conexão estável de internet, um dispositivo com câmera e microfone (celular ou computador) e um local privativo onde se sinta confortável e à vontade para falar livremente."
+  },
+  {
+    id: 2,
+    pergunta: "Como funciona a abordagem psicanalítica?",
+    resposta: "A Psicanálise oferece um espaço seguro de escuta, acolhimento e reflexão para mulheres que desejam compreender sua história. Diferente de abordagens focadas apenas no alívio imediato dos sintomas, a Psicanálise busca compreender as causas profundas do sofrimento psíquico e os padrões inconscientes que influenciam escolhas, emoções e formas de se relacionar."
+  },
+  {
+    id: 3,
+    pergunta: "A terapia online é eficaz e sigilosa?",
+    resposta: "Sim, absolutamente. A eficácia da terapia online é reconhecida pelo Conselho Federal de Psicologia (CFP) e respaldada por diversos estudos científicos. O vínculo terapêutico e a profundidade do trabalho se mantêm idênticos ao formato presencial. Quanto ao sigilo, ele é ético e inegociável, protegido pelo Código de Ética Profissional em ambiente criptografado."
+  },
+  {
+    id: 4,
+    pergunta: "Os atendimentos são por plano de saúde?",
+    resposta: "Não, os atendimentos são realizados exclusivamente na modalidade particular. Todas as sessões acompanham a emissão de Nota Fiscal, que você pode utilizar para a dedução do Imposto de Renda ou solicitar o reembolso junto ao seu convênio, caso o seu plano ofereça essa opção."
+  }
+];
+
 const Atendimento = () => {
+  const [activeFaqIndex, setActiveFaqIndex] = useState(null);
   const urlWhatsApp = `https://wa.me/${informacoes.whatsapp}?text=${encodeURIComponent("Olá, gostaria de agendar um Atendimento Psicológico Online.")}`;
+
+  const toggleFaq = (index) => {
+    setActiveFaqIndex(activeFaqIndex === index ? null : index);
+  };
 
   return (
     <>
@@ -16,31 +46,39 @@ const Atendimento = () => {
 
       <section className={styles.pageSection}>
         <div className="container">
-          <motion.h1 
-            className={styles.pageTitle}
-            initial={{ opacity: 0, y: -20 }}
+          
+          {/* TOPO: TEXTO DE UM LADO, IMAGEM DO OUTRO */}
+          <motion.div 
+            className={styles.serviceHeroCard}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            Atendimento Psicológico Online para Mulheres
-          </motion.h1>
+            <div className={styles.serviceHeroText}>
+              <span className={styles.eyebrow}>Psicoterapia Online</span>
+              <h1 className={styles.heroTitle}>Atendimento Psicológico Online para Mulheres</h1>
+              <p>
+                Ofereço espaço seguro de escuta, acolhimento e reflexão para mulheres que querem compreender sua história, fortalecer sua identidade e construir uma vida e uma carreira coerentes com seus desejos.
+              </p>
+              <p>
+                A rotina da mulher contemporânea é marcada por múltiplas responsabilidades. A terapia oferece um refúgio para compreender os conflitos emocionais, lidar com a sobrecarga e fortalecer a saúde mental.
+              </p>
+            </div>
 
+            <div className={styles.serviceHeroImage}>
+              <img src={atendimentoImg} alt="Atendimento Psicológico Online para Mulheres" />
+            </div>
+          </motion.div>
+
+          {/* CONTEÚDO COMPLEMENTAR EM CARD BRANCO ELEGANTE */}
           <motion.div 
             className={styles.pageContent}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
           >
             <p>
-              Ofereço espaço seguro de escuta, acolhimento e reflexão para mulheres que querem compreender sua história, fortalecer sua identidade e construir uma vida e uma carreira coerentes com seus desejos. A terapia online ajuda mulheres que enfrentam ansiedade, sobrecarga emocional, dificuldades nos relacionamentos, desafios profissionais e conflitos relacionados à autoestima e ao posicionamento.
-            </p>
-            <p>
-              A rotina da mulher contemporânea é marcada por múltiplas responsabilidades como carreira, a maternidade, os relacionamentos e os cuidados com a família, muitas mulheres convivem com ansiedade, autocobrança, culpa e sobrecarga emocional. A terapia oferece um espaço para compreender esses conflitos e fortalecer a saúde mental.
-            </p>
-            <p>
               Minha prática clínica é fundamentada na Psicologia e na Psicanálise, oferecendo atendimento psicológico online para mulheres que desejam compreender os significados de seus conflitos emocionais, sua história, suas relações e como suas experiências influenciam suas escolhas, seus afetos e sua forma de estar no mundo.
-            </p>
-            <p>
-              Meu trabalho é voltado para mulheres que desejam refletir sobre sua trajetória, fortalecer seu posicionamento, compreender seus conflitos e construir caminhos mais coerentes com quem são, sem respostas prontas ou fórmulas de sucesso.
             </p>
             <p>
               A clínica é um espaço de elaboração, onde cada história é acolhida em sua singularidade, considerando também os atravessamentos sociais, culturais e de gênero que fazem parte da experiência feminina. Porque compreender a si mesma é também compreender o lugar que ocupamos nas relações, na família, no trabalho e na sociedade.
@@ -81,10 +119,11 @@ const Atendimento = () => {
               Através de sessões online para todo o Brasil, ofereço uma escuta ética, singular e atenta à história de cada mulher, embasada nos princípios da Psicologia e da Psicanálise.
             </p>
             <p>
-              A experiência clínica também é atravessada por uma compreensão das questões que permeiam a vida das mulheres na contemporaneidade como desigualdades, exigências sociais, sobrecarga de cuidados, maternidade, carreira e construção da identidade, reconhecendo que essas dimensões influenciam o sofrimento psíquico feminino.
+              A experiência clínica também é atravessada por uma compreensão das questões que permeiam a vida das mulheres na contemporaneidade como desigualdades, exigências sociais, sobrecarga de cuidados, maternidade, carreira e construção da identidade.
             </p>
 
-            <div className={styles.ctaContainer} style={{ borderTop: 'none', marginTop: '3rem' }}>
+            {/* CAIXA CTA DE AGENDAMENTO */}
+            <div className={styles.ctaContainer}>
               <h3>Agende seu Atendimento Psicológico Online</h3>
               <p>
                 Se você busca uma psicóloga para mulheres que acolha sua história com ética, escuta e profundidade, será um prazer acompanhar seu processo terapêutico.
@@ -94,35 +133,42 @@ const Atendimento = () => {
               </a>
             </div>
 
+            {/* SANFONA INTERATIVA FAQ (IGUAL À PÁGINA INICIAL) */}
             <div className={styles.faqSection}>
-              <h3>Perguntas frequentes (FAQ)</h3>
+              <h3>Perguntas Frequentes (FAQ)</h3>
               
-              <div className={styles.faqItem}>
-                <h4>Como funciona o atendimento psicológico online?</h4>
-                <p>
-                  As sessões ocorrem semanalmente com horário pré-agendado por videochamada através do Google Meeting, para o atendimento, você precisa de uma conexão estável de internet, um dispositivo com câmera e microfone (celular ou computador) e um local privativo, onde se sinta confortável e à vontade para falar livremente.
-                </p>
-              </div>
-
-              <div className={styles.faqItem}>
-                <h4>Como funciona a abordagem psicanalítica?</h4>
-                <p>
-                  A Psicanálise é uma abordagem que oferece espaço seguro de escuta, acolhimento e reflexão para mulheres que desejam compreender sua história... Diferente de abordagens focadas apenas no alívio imediato dos sintomas, a Psicanálise busca compreender as causas profundas do sofrimento psíquico e os padrões inconscientes que influenciam escolhas, emoções e formas de se relacionar. A partir dessa compreensão, torna-se possível construir novos caminhos, fortalecer a identidade, ampliar o autoconhecimento e desenvolver formas mais conscientes de lidar com os conflitos da vida.
-                </p>
-              </div>
-
-              <div className={styles.faqItem}>
-                <h4>A terapia online é eficaz e sigilosa?</h4>
-                <p>
-                  Sim, absolutamente. A eficácia da terapia online é reconhecida pelo Conselho Federal de Psicologia (CFP) e respaldada por diversos estudos científicos. O vínculo terapêutico e a profundidade do trabalho se mantêm idênticos ao formato presencial. Quanto ao sigilo, ele é ético e inegociável. Todas as sessões são protegidas pelo Código de Ética Profissional e realizadas em ambiente criptografado.
-                </p>
-              </div>
-
-              <div className={styles.faqItem}>
-                <h4>Os atendimentos são por plano de saúde?</h4>
-                <p>
-                  Não, os atendimentos são realizados exclusivamente na modalidade particular, todas as sessões acompanham a emissão de Nota Fiscal, que você pode utilizar para a dedução do Imposto de Renda ou solicitar o reembolso junto ao seu convênio, caso o seu plano ofereça essa opção.
-                </p>
+              <div className={styles.accordion}>
+                {faqAtendimento.map((item, index) => (
+                  <div 
+                    key={item.id} 
+                    className={`${styles.accordionItem} ${activeFaqIndex === index ? styles.active : ''}`}
+                  >
+                    <button 
+                      className={`${styles.accordionHeader} ${activeFaqIndex === index ? styles.activeHeader : ''}`} 
+                      onClick={() => toggleFaq(index)}
+                      aria-expanded={activeFaqIndex === index}
+                    >
+                      {item.pergunta}
+                      <FaChevronDown className={styles.icon} />
+                    </button>
+                    
+                    <AnimatePresence>
+                      {activeFaqIndex === index && (
+                        <motion.div 
+                          className={styles.accordionContent}
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <div className={styles.accordionInner}>
+                            <p>{item.resposta}</p>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ))}
               </div>
             </div>
 
