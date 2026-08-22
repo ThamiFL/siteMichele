@@ -8,7 +8,7 @@ import psico11 from "../../assets/psico11.jpeg";
 import lideranca from "../../assets/psico22.jpeg";
 import festiva from "../../assets/fetiva.jpeg";
 import treain from "../../assets/treaindlider.jpg";
-import cursoLi from "../../assets/Curso-de-lideranca.jpg";
+import cursoLi from "../../assets/Curso-de-Lideranca.jpg";
 import projetoEmpre from "../../assets/Projeto-Empreende-Mulher.jpg";
 import projetoPrefeitura from "../../assets/ProjetoEmpreendePrefeitura.jpg";
 import projetoEmpreende from "../../assets/Projeto-Empreende.jpg";
