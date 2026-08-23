@@ -133,6 +133,7 @@ const Header = () => {
                     ) : (
                       <Link 
                         to={link.path}
+                        onClick={() => setMenuOpen(false)}
                         className={isActive ? styles.activeLink : ''}
                       >
                         {link.name}

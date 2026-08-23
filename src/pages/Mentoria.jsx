@@ -6,7 +6,6 @@ import { informacoes } from "../data/informacoes";
 import mentoriaImg from "../assets/mentoria-hd.jpg";
 import styles from "./PageTemplate.module.scss";
 
-// Import das imagens específicas dos depoimentos da Mentoria
 import lucieneMentoria from "../assets/lucieneMentoria.jpg";
 import mayaraMentoria from "../assets/mayaraMentoria.jpeg";
 import patriciaMentoria from "../assets/patriciaMentoria.jpeg";

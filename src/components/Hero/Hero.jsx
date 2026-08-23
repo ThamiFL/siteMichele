@@ -25,19 +25,6 @@ const Hero = () => {
             pessoais e profissionais com responsabilidade, empatia e
             comprometimento.
           </p>
-          <div className={styles.heroButtons}>
-            <a
-              href={urlWhatsApp}
-              target="_blank"
-              rel="noreferrer"
-              className="btn-primary"
-            >
-              Agendar consulta
-            </a>
-            <Link to="/sobre" className="btn-secondary">
-              Conheça meu trabalho
-            </Link>
-          </div>
         </motion.div>
 
         <motion.div
@@ -52,6 +39,25 @@ const Hero = () => {
           {/* Elementos decorativos */}
           <div className={styles.decorator1}></div>
           <div className={styles.decorator2}></div>
+        </motion.div>
+
+        <motion.div 
+          className={styles.heroButtons}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+        >
+          <a
+            href={urlWhatsApp}
+            target="_blank"
+            rel="noreferrer"
+            className="btn-primary"
+          >
+            Agendar consulta
+          </a>
+          <Link to="/sobre" className="btn-secondary">
+            Conheça meu trabalho
+          </Link>
         </motion.div>
       </div>
 

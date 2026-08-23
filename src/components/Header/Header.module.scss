@@ -7,13 +7,20 @@
   left: 0;
   width: 100%;
   padding: 24px 0;
-  z-index: 999;
+  z-index: 1000;
   transition: $transition-default;
   background-color: transparent;
 
   &.scrolled {
     padding: 12px 0;
-    background-color: rgba($color-white, 0.95);
+    background-color: rgba($color-white, 0.98);
+    backdrop-filter: blur(10px);
+    box-shadow: $shadow-light;
+  }
+
+  @include mobile {
+    padding: 12px 0;
+    background-color: rgba($color-white, 0.98);
     backdrop-filter: blur(10px);
     box-shadow: $shadow-light;
   }
@@ -153,11 +160,6 @@
           border-radius: 20px;
           transition: all 0.25s ease;
           text-decoration: none;
-
-          &:hover {
-            color: $color-navy;
-            background-color: rgba(142, 169, 147, 0.12);
-          }
 
           &.activeLink {
             color: $color-navy;
