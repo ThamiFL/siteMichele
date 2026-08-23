@@ -42,7 +42,6 @@ const Header = () => {
     { name: 'Início', path: '/' },
     { name: 'Sobre', path: '/sobre' },
     { name: 'Serviços', path: '/servicos' },
-    { name: 'FAQ', path: '/#faq' },
     { name: 'Contato', path: '/contato' },
   ];
 

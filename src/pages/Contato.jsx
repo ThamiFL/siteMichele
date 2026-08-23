@@ -11,7 +11,7 @@ const Contato = () => {
       </Helmet>
 
       <div style={{ paddingTop: '80px' }}>
-        <ContatoComponent />
+        <ContatoComponent showPhoto={true} />
       </div>
     </>
   );

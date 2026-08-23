@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaChevronLeft, FaChevronRight, FaChevronDown } from 'react-icons/fa';
@@ -34,13 +34,6 @@ const DesenvolvimentoEmpresas = () => {
   const [currentFotoIndex, setCurrentFotoIndex] = useState(0);
   const [activeFaqIndex, setActiveFaqIndex] = useState(null);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentFotoIndex((prev) => (prev + 1) % depoimentosFotos.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
-
   const handleNextFoto = () => {
     setCurrentFotoIndex((prev) => (prev + 1) % depoimentosFotos.length);
   };
@@ -73,10 +66,10 @@ const DesenvolvimentoEmpresas = () => {
             transition={{ duration: 0.6 }}
           >
             <div className={styles.serviceHeroText}>
-              <span className={styles.eyebrow}>Soluções Corporativas</span>
-              <h1 className={styles.heroTitle}>Desenvolvimento Humano para Empresas</h1>
+              <span className={styles.eyebrow}>Soluções corporativas</span>
+              <h1 className={styles.heroTitle}>Desenvolvimento humano para empresas</h1>
               <p>
-                Palestras Corporativas e Treinamentos para Empresas que Desenvolvem Pessoas, Fortalecem Lideranças e Transformam Resultados.
+                Palestras corporativas e treinamentos para empresas que desenvolvem pessoas, fortalecem lideranças e transformam resultados.
               </p>
               <p>
                 Como psicóloga organizacional e especialista em comportamento humano, desenvolvo programas e palestras que unem a Psicologia ao ambiente corporativo.
@@ -84,7 +77,7 @@ const DesenvolvimentoEmpresas = () => {
             </div>
 
             <div className={styles.serviceHeroImage}>
-              <img src={desenvolvimentoImg} alt="Desenvolvimento Humano para Empresas" />
+              <img src={desenvolvimentoImg} alt="Desenvolvimento humano para empresas" />
             </div>
           </motion.div>
 
@@ -108,7 +101,7 @@ const DesenvolvimentoEmpresas = () => {
               Com mais de 15 anos de experiência em Psicologia Organizacional, Gestão de Pessoas, Desenvolvimento de Lideranças e Psicologia Clínica, ofereço soluções personalizadas para empresas que desejam investir no crescimento das pessoas e alcançar resultados sustentáveis.
             </p>
 
-            <h3>Palestras e Treinamentos Corporativos com Aplicação Prática</h3>
+            <h3>Palestras e treinamentos corporativos com aplicação prática</h3>
             <p>
               Mais do que transmitir conteúdo, minhas palestras corporativas proporcionam experiências que geram reflexão, aprendizado e transformação comportamental. Cada encontro é planejado de acordo com os desafios da organização, tornando o conteúdo aplicável ao dia a dia das equipes e alinhado aos objetivos estratégicos da empresa.
             </p>
@@ -125,7 +118,7 @@ const DesenvolvimentoEmpresas = () => {
               <li>estimular comportamentos alinhados aos valores da empresa.</li>
             </ul>
 
-            <h3>Desenvolvimento Humano para Empresas</h3>
+            <h3>Desenvolvimento humano para empresas</h3>
             <p>
               Empresas que investem no desenvolvimento humano fortalecem a cultura organizacional, reduzem o absenteísmo, aumentam o comprometimento das equipes e desenvolvem líderes preparados para enfrentar os desafios atuais do mercado.
             </p>
@@ -133,7 +126,7 @@ const DesenvolvimentoEmpresas = () => {
               Cada projeto é construído considerando: cultura organizacional, objetivos estratégicos, perfil das equipes, desafios da liderança, clima organizacional, desenvolvimento comportamental, saúde mental nas empresas, exigências relacionadas aos riscos psicossociais e à NR-1.
             </p>
 
-            <h3>Temas de Palestras Corporativas e Treinamentos</h3>
+            <h3>Temas de palestras corporativas e treinamentos</h3>
             <ul className={styles.listItems}>
               <li><strong>Saúde Mental nas Empresas:</strong> Promova uma cultura organizacional que valoriza o bem-estar, a prevenção do adoecimento emocional, a redução do estresse ocupacional, a prevenção do burnout e o fortalecimento das relações de trabalho.</li>
               <li><strong>Saúde Mental e NR-1 | Riscos Psicossociais:</strong> Treinamentos voltados à identificação dos riscos psicossociais, fortalecimento das práticas preventivas e desenvolvimento de ambientes emocionalmente seguros.</li>
@@ -141,7 +134,7 @@ const DesenvolvimentoEmpresas = () => {
               <li><strong>Comunicação Assertiva e Trabalho em Equipe:</strong> Treinamentos focados em escuta ativa, feedback, gestão de conflitos, cooperação, integração entre áreas e desenvolvimento de equipes de alta performance.</li>
             </ul>
 
-            <h3>Formatos de Atendimento</h3>
+            <h3>Formatos de atendimento</h3>
             <ul className={styles.listItems}>
               <li><strong>Palestras Corporativas:</strong> Apresentações inspiradoras para SIPAT, encontros corporativos, campanhas de saúde (Duração: 1h a 1h30).</li>
               <li><strong>Workshops e Treinamentos Corporativos:</strong> Encontros práticos com metodologias participativas (Duração: 3 a 8 horas).</li>
@@ -209,7 +202,7 @@ const DesenvolvimentoEmpresas = () => {
 
             {/* SANFONA INTERATIVA FAQ (IGUAL À PÁGINA INICIAL) */}
             <div className={styles.faqSection}>
-              <h3>Perguntas Frequentes (FAQ)</h3>
+              <h3>Perguntas frequentes (FAQ)</h3>
               
               <div className={styles.accordion}>
                 {faqEmpresas.map((item, index) => (

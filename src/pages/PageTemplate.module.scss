@@ -81,6 +81,7 @@
     line-height: 1.75;
     color: #3b4c5e;
     margin-bottom: 1rem;
+    text-align: justify;
   }
 
   .heroBtn {
@@ -133,10 +134,12 @@
     color: #3b4c5e;
     font-size: 1rem;
     letter-spacing: 0.1px;
+    text-align: justify;
 
     @include mobile {
       font-size: 0.94rem;
       line-height: 1.75;
+      text-align: justify;
     }
   }
 

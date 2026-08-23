@@ -16,6 +16,15 @@ import projeto2 from "../../assets/Projeto2.jpg";
 import recru from "../../assets/recrutamento.jpg";
 import cursoDeLideranca from "../../assets/cursodelideranca.jpeg";
 import pales from "../../assets/palestra.jpg";
+import assert from "../../assets/Assertiva.jpeg";
+import amarelo from "../../assets/Amarelo.jpeg";
+import sipat from "../../assets/Sipat.jpeg";
+import brito from "../../assets/Brito.jpeg";
+import saude from "../../assets/saude.jpeg";
+import comu from "../../assets/comunicacao.jpeg";
+import mental from "../../assets/Mental.jpeg";
+import lider from "../../assets/lider.jpeg";
+import treinamento from "../../assets/Treinamento.jpeg";
 
 const galleryData = [
   {
@@ -99,6 +108,68 @@ const galleryData = [
     img: pales,
     title: "Palestra para Empreendedoras — Instituto EnLife 2023",
   },
+
+  {
+    id: 14,
+    category: "Palestra",
+    img: assert,
+    title: "Capacitação de Liderança -  Comunicação Assertiva",
+  },
+
+  {
+    id: 15,
+    category: "Palestra",
+    img: amarelo,
+    title: "Palestra - Setembro Amarelo",
+  },
+  {
+    id: 16,
+    category: "Palestra",
+    img: sipat,
+    title: "Sipat - Tema Saúde Mental",
+  },
+
+  {
+    id: 17,
+    category: "Palestra",
+    img: brito,
+    title: "Capacitação de Liderança - Brito Contabilidade",
+  },
+
+  {
+    id: 18,
+    category: "Palestra",
+    img: saude,
+    title: "Projeto - Saúde Mental nas empresas",
+  },
+
+  {
+    id: 19,
+    category: "Palestra",
+    img: comu,
+    title: "Comunicação Sem Assédio",
+  },
+
+  {
+    id: 20,
+    category: "Palestra",
+    img: mental,
+    title: "Projeto - Saúde Mental nas empresas",
+  },
+
+  {
+    id: 21,
+    category: "Palestra",
+    img: lider,
+    title: "Treinamento de Liderança",
+  },
+
+  {
+    id: 22,
+    category: "Palestra",
+    img: treinamento,
+    title: "Treinamento de Comunicação",
+  },
 ];
 
 const Galeria = () => {
@@ -107,12 +178,12 @@ const Galeria = () => {
   // Travar o scroll da página de fundo enquanto a foto ampliada estiver aberta
   useEffect(() => {
     if (selectedCard) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
   }, [selectedCard]);
 

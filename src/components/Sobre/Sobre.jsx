@@ -41,8 +41,8 @@ const Sobre = ({ isResumo = false }) => {
             Sobre <span>Michele Gonçalves</span>
           </h2>
           <h3 className={styles.subtitle}>
-            PSICÓLOGA | PSICANALISTA | ESPECIALISTA EM DESENVOLVIMENTO HUMANO,
-            CARREIRA E SAÚDE MENTAL
+            Psicóloga | Psicanalista | Especialista em desenvolvimento humano,
+            carreira e saúde mental
           </h3>
 
           <div className={styles.quoteBox}>

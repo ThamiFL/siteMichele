@@ -2,84 +2,268 @@
 @import '../../styles/mixins.scss';
 
 .contatoSection {
-  padding: 5rem 0;
-  background-color: $color-white;
+  padding: 5.5rem 0;
+  background-color: $color-off-white;
 }
 
-.contatoContainer {
-  display: flex;
-  justify-content: center;
+/* PÁGINA DEDICADA DE CONTATO (/contato) - SEM CAIXA BRANCA */
+.contatoCard {
+  background-color: transparent;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  padding: 1rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4.5rem;
   align-items: center;
+  max-width: 1140px;
+  margin: 0 auto;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+    padding: 0;
+    gap: 3rem;
+  }
+
+  @include mobile {
+    padding: 0;
+    gap: 2.2rem;
+  }
+}
+
+.imageColumn {
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 4 / 5;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 14px 38px rgba(23, 36, 57, 0.09);
+  justify-self: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  @include mobile {
+    max-width: 320px;
+  }
 }
 
 .infoColumn {
-  text-align: center;
-  max-width: 800px;
-  
-  h2 {
-    color: $color-deep-green;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding-left: 1rem;
+
+  @include tablet {
+    padding-left: 0;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  @include mobile {
+    padding-left: 0;
+    align-items: center;
+    text-align: center;
+    width: 100%;
   }
   
-  p {
-    color: $color-text;
-    margin-bottom: 3rem;
-    font-size: 1.05rem;
+  .title {
+    color: $color-navy;
+    font-family: $font-secondary;
+    font-size: 2.3rem;
+    margin-bottom: 1.2rem;
+
+    @include tablet {
+      text-align: center;
+    }
+
+    @include mobile {
+      font-size: 1.75rem;
+      text-align: center;
+    }
+  }
+  
+  .subtitle {
+    color: #3b4c5e;
+    margin-bottom: 2.5rem;
+    font-size: 1.02rem;
+    line-height: 1.8;
+    text-align: left;
+
+    @include tablet {
+      text-align: center;
+    }
+
+    @include mobile {
+      text-align: center;
+    }
   }
 }
 
 .contactDetails {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 3rem;
-  flex-wrap: wrap;
-  
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+
   @include tablet {
-    flex-direction: column;
     align-items: center;
-    gap: 2rem;
+  }
+
+  @include mobile {
+    align-items: center;
   }
 }
 
 .contactItem {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.4rem;
+  text-align: left;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .iconBox {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background-color: rgba($color-sage-green, 0.15);
+    color: $color-navy;
+    font-size: 1.5rem;
+    @include flex-center;
+    flex-shrink: 0;
+  }
+  
+  .itemContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @include mobile {
+      align-items: center;
+      text-align: center;
+    }
+
+    h4 {
+      color: $color-navy;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+
+      @include mobile {
+        text-align: center;
+      }
+    }
+
+    a:not(:global(.btn-primary)) {
+      color: #3b4c5e;
+      font-size: 1rem;
+      transition: $transition-default;
+
+      &:hover {
+        color: $color-sage-green;
+      }
+
+      @include mobile {
+        text-align: center;
+        word-break: break-word;
+      }
+    }
+  }
+}
+
+/* LAYOUT CENTRALIZADO PARA A PÁGINA INICIAL (HOME) - SEM FOTO */
+.centeredContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.centeredContent {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.centeredTitle {
+  color: $color-navy;
+  font-family: $font-secondary;
+  font-size: 2.4rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+
+  @include mobile {
+    font-size: 1.8rem;
+  }
+}
+
+.centeredSubtitle {
+  color: #3b4c5e;
+  margin-bottom: 3rem;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  text-align: center;
+}
+
+.centeredContactDetails {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+}
+
+.centeredContactItem {
+  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
   text-align: center;
-  
+
   .iconBox {
     width: 60px;
     height: 60px;
-    border-radius: 12px;
-    background-color: rgba($color-sage-green, 0.2);
-    color: $color-deep-green;
+    border-radius: 16px;
+    background-color: rgba($color-sage-green, 0.15);
+    color: $color-navy;
     font-size: 1.5rem;
     @include flex-center;
   }
-  
+
   h4 {
-    color: $color-deep-green;
-    font-size: 1.1rem;
-    margin-bottom: 0.2rem;
+    color: $color-navy;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
   }
-  
-  a:not(:global(.btn-primary)), p {
-    color: $color-text;
-    margin: 0;
+
+  a:not(:global(.btn-primary)) {
+    color: #3b4c5e;
+    font-size: 1rem;
     transition: $transition-default;
-    font-size: 0.95rem;
 
     &:hover {
       color: $color-sage-green;
-    }
-  }
-
-  :global(.btn-primary) {
-    color: #ffffff !important;
-    
-    &:hover {
-      color: #ffffff !important;
     }
   }
 }

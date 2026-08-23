@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronLeft, FaChevronRight, FaChevronDown } from "react-icons/fa";
@@ -12,23 +12,28 @@ import mayaraMentoria from "../assets/mayaraMentoria.jpeg";
 import patriciaMentoria from "../assets/patriciaMentoria.jpeg";
 import thaisMentoria from "../assets/thaisMentoria.jpg";
 import depoMentoria from "../assets/depoMentoria.jpeg";
+import roberMentoria from "../assets/robertaMentoria.jpeg";
+import carolMentoria from "../assets/carolMentoria.jpeg";
 
 const faqMentoria = [
   {
     id: 1,
     pergunta: "Para quem é indicada a mentoria de carreira?",
-    resposta: "A mentoria de carreira é indicada para mulheres em diferentes momentos profissionais que desejam assumir posições de liderança com segurança, realizar transição de carreira, desenvolver posicionamento profissional firme, melhorar a comunicação corporativa e construir estratégias de crescimento com equilíbrio pessoal."
+    resposta:
+      "A mentoria de carreira é indicada para mulheres em diferentes momentos profissionais que desejam assumir posições de liderança com segurança, realizar transição de carreira, desenvolver posicionamento profissional firme, melhorar a comunicação corporativa e construir estratégias de crescimento com equilíbrio pessoal.",
   },
   {
     id: 2,
     pergunta: "Qual a diferença entre mentoria de carreira e terapia?",
-    resposta: "A terapia é um processo clínico voltado para aspectos emocionais, conflitos e sofrimentos psíquicos. Já a mentoria de carreira tem foco no desenvolvimento profissional com objetivos concretos de liderança, posicionamento, tomadas de decisão e competências comportamentais."
+    resposta:
+      "A terapia é um processo clínico voltado para aspectos emocionais, conflitos e sofrimentos psíquicos. Já a mentoria de carreira tem foco no desenvolvimento profissional com objetivos concretos de liderança, posicionamento, tomadas de decisão e competências comportamentais.",
   },
   {
     id: 3,
     pergunta: "O que posso esperar ao final da mentoria?",
-    resposta: "Ao final do processo, você estará mais preparada para tomar decisões com segurança, comunicar seu valor com confiança, fortalecer sua liderança, posicionar-se estrategicamente e construir um plano de carreira sustentável."
-  }
+    resposta:
+      "Ao final do processo, você estará mais preparada para tomar decisões com segurança, comunicar seu valor com confiança, fortalecer sua liderança, posicionar-se estrategicamente e construir um plano de carreira sustentável.",
+  },
 ];
 
 const depoimentosFotos = [
@@ -37,18 +42,13 @@ const depoimentosFotos = [
   patriciaMentoria,
   thaisMentoria,
   depoMentoria,
+  roberMentoria,
+  carolMentoria,
 ];
 
 const Mentoria = () => {
   const [currentFotoIndex, setCurrentFotoIndex] = useState(0);
   const [activeFaqIndex, setActiveFaqIndex] = useState(null);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentFotoIndex((prev) => (prev + 1) % depoimentosFotos.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
 
   const handleNextFoto = () => {
     setCurrentFotoIndex((prev) => (prev + 1) % depoimentosFotos.length);
@@ -78,27 +78,33 @@ const Mentoria = () => {
 
       <section className={styles.pageSection}>
         <div className="container">
-          
-          {/* TOPO: TEXTO DE UM LADO, IMAGEM DO OUTRO */}
-          <motion.div 
+          <motion.div
             className={styles.serviceHeroCard}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
             <div className={styles.serviceHeroText}>
-              <span className={styles.eyebrow}>Desenvolvimento Profissional</span>
-              <h1 className={styles.heroTitle}>Mentoria de Carreira para Mulheres</h1>
+              <span className={styles.eyebrow}>
+                Desenvolvimento profissional
+              </span>
+              <h1 className={styles.heroTitle}>
+                Mentoria de carreira para mulheres
+              </h1>
               <p>
-                Crescimento Profissional com Clareza, Posicionamento e Confiança.
+                Crescimento profissional com clareza, posicionamento e
+                confiança.
               </p>
               <p>
-                Se você sente que chegou o momento de crescer profissionalmente, conquistar uma promoção, assumir uma posição de liderança ou realizar uma transição de carreira, a mentoria oferece a direção estratégica que você procura.
+                Se você sente que chegou o momento de crescer profissionalmente,
+                conquistar uma promoção, assumir uma posição de liderança ou
+                realizar uma transição de carreira, a mentoria oferece a direção
+                estratégica que você procura.
               </p>
             </div>
 
             <div className={styles.serviceHeroImage}>
-              <img src={mentoriaImg} alt="Mentoria de Carreira para Mulheres" />
+              <img src={mentoriaImg} alt="Mentoria de carreira para mulheres" />
             </div>
           </motion.div>
 
@@ -378,16 +384,12 @@ const Mentoria = () => {
               da Psicologia, este pode ser o próximo passo da sua trajetória.
             </p>
 
-            <div
-              className={styles.ctaContainer}
-              style={{ borderTop: "none", marginTop: "1rem" }}
-            >
+            {/* CAIXA CTA DE AGENDAMENTO */}
+            <div className={styles.ctaContainer}>
               <h3>Pronta para crescer profissionalmente?</h3>
               <p>
-                Se você deseja desenvolver sua carreira com mais clareza,
-                confiança e estratégia, agende uma conversa inicial e descubra
-                como a mentoria de carreira pode ajudá-la a conquistar novos
-                resultados profissionais.
+                Agende uma conversa inicial e saiba como a Mentoria de Carreira
+                pode impulsionar sua trajetória com clareza e confiança.
               </p>
               <a
                 href={urlWhatsApp}
@@ -395,35 +397,35 @@ const Mentoria = () => {
                 rel="noreferrer"
                 className="btn-primary"
               >
-                Agende sua conversa pelo WhatsApp
+                Agendar conversa sobre mentoria
               </a>
             </div>
 
             {/* SANFONA INTERATIVA FAQ (IGUAL À PÁGINA INICIAL) */}
             <div className={styles.faqSection}>
-              <h3>Perguntas Frequentes (FAQ)</h3>
-              
+              <h3>Perguntas frequentes (FAQ)</h3>
+
               <div className={styles.accordion}>
                 {faqMentoria.map((item, index) => (
-                  <div 
-                    key={item.id} 
-                    className={`${styles.accordionItem} ${activeFaqIndex === index ? styles.active : ''}`}
+                  <div
+                    key={item.id}
+                    className={`${styles.accordionItem} ${activeFaqIndex === index ? styles.active : ""}`}
                   >
-                    <button 
-                      className={`${styles.accordionHeader} ${activeFaqIndex === index ? styles.activeHeader : ''}`} 
+                    <button
+                      className={`${styles.accordionHeader} ${activeFaqIndex === index ? styles.activeHeader : ""}`}
                       onClick={() => toggleFaq(index)}
                       aria-expanded={activeFaqIndex === index}
                     >
                       {item.pergunta}
                       <FaChevronDown className={styles.icon} />
                     </button>
-                    
+
                     <AnimatePresence>
                       {activeFaqIndex === index && (
-                        <motion.div 
+                        <motion.div
                           className={styles.accordionContent}
                           initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
+                          animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.3 }}
                         >

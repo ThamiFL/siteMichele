@@ -4,9 +4,7 @@ import Hero from '../components/Hero/Hero';
 import Sobre from '../components/Sobre/Sobre';
 import Servicos from '../components/Servicos/Servicos';
 import Galeria from '../components/Galeria/Galeria';
-import Beneficios from '../components/Beneficios/Beneficios';
-import Clientes from '../components/Clientes/Clientes';
-import FAQ from '../components/FAQ/FAQ';
+import Contato from '../components/Contato/Contato';
 
 const Home = () => {
   return (
@@ -21,9 +19,7 @@ const Home = () => {
       <Sobre isResumo={true} />
       <Servicos />
       <Galeria />
-      <Beneficios />
-      <Clientes />
-      <FAQ />
+      <Contato />
     </>
   );
 };
