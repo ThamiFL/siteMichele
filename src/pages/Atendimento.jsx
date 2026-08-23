@@ -26,7 +26,7 @@ const faqAtendimento = [
     id: 2,
     pergunta: "Qual a duração das sessões?",
     resposta:
-      "Cada sessão tem a duração de 50 minutos e, geralmente, ocorre uma vez por semana, mas a frequência pode ser ajustada de acordo com a sua necessidade.",
+      "Cada sessão tem a duração entre 35 e 45 minutos e geralmente, ocorre uma vez por semana, mas a frequência pode ser ajustada de acordo com a sua necessidade.",
   },
   {
     id: 3,
