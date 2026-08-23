@@ -2,24 +2,16 @@ import React from "react";
 import { motion } from "framer-motion";
 import styles from "./Clientes.module.scss";
 
-import logoEnlife from "../../assets/logo1.png";
-import logoAdore from "../../assets/logo2.png";
-import logoEstasa from "../../assets/logo3.png";
-import logoEbse from "../../assets/logo4.png";
-import logoHosp from "../../assets/logo5.png";
-import logoEspaco from "../../assets/logo6.png";
-import logoPrefeitura from "../../assets/logo-prefeitura.png";
-
 const clientes = [
-  { imgSrc: logoEspaco, nome: "Espaço Crescer" },
-  { imgSrc: logoHosp, nome: "São José Hospital" },
-  { imgSrc: logoEbse, nome: "EBSE Engenharia" },
-  { imgSrc: logoEstasa, nome: "Estasa" },
-  { imgSrc: logoAdore, nome: "ADORE Professional" },
-  { imgSrc: logoEnlife, nome: "Instituto EnLife" },
+  { imgSrc: null, nome: "Espaço Crescer" },
+  { imgSrc: null, nome: "São José Hospital" },
+  { imgSrc: null, nome: "EBSE Engenharia" },
+  { imgSrc: null, nome: "Estasa" },
+  { imgSrc: null, nome: "ADORE Professional" },
+  { imgSrc: null, nome: "Instituto EnLife" },
 ];
 
-const parceiros = [{ imgSrc: logoPrefeitura, nome: "Prefeitura de São Gonçalo" }];
+const parceiros = [{ imgSrc: null, nome: "Prefeitura de São Gonçalo" }];
 
 const Clientes = () => {
   return (

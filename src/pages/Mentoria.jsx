@@ -13,7 +13,7 @@ import patriciaMentoria from "../assets/patriciaMentoria.jpeg";
 import thaisMentoria from "../assets/thaisMentoria.jpg";
 import depoMentoria from "../assets/depoMentoria.jpeg";
 import roberMentoria from "../assets/robertaMentoria.jpeg";
-import carolMentoria from "../assets/carolMentoria.jpeg";
+import carolMentoria from "../assets/CarolMentoria.jpeg";
 
 const faqMentoria = [
   {
