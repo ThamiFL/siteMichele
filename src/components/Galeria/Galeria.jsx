@@ -25,6 +25,7 @@ import comu from "../../assets/comunicacao.jpeg";
 import mental from "../../assets/Mental.jpeg";
 import lider from "../../assets/lider.jpeg";
 import treinamento from "../../assets/Treinamento.jpeg";
+import profissi from "../../assets/profissionais.jpeg";
 
 const galleryData = [
   {
@@ -170,6 +171,12 @@ const galleryData = [
     img: treinamento,
     title: "Treinamento de Comunicação",
   },
+  {
+    id: 23,
+    category: "Palestra",
+    img: profissi,
+    title: "Palestra Saúde Mental - Colégio Odete São Paio",
+  },
 ];
 
 const Galeria = () => {
@@ -193,7 +200,7 @@ const Galeria = () => {
         {/* Cabeçalho delicado e elegante */}
         <div className={styles.headerWrapper}>
           <h2 className={styles.sectionTitle}>
-            Mentoria • Palestras • Workshops
+            Cursos • Palestras • Workshops
           </h2>
         </div>
 

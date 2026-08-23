@@ -13,6 +13,12 @@ import letiSupervisao from "../assets/letiSupervisao.jpeg";
 import marcelleSupervisao from "../assets/marcelleSupervisao.jpeg";
 import niceSupervisao from "../assets/niceSupervisao.jpg";
 import saraSupervisao from "../assets/saramentoria.jpeg";
+import depoPsi1 from "../assets/depoPsi.jpeg";
+import depoPsi2 from "../assets/depoPsi2.jpeg";
+import depoPsi3 from "../assets/depoPci3.jpeg";
+import depoPsi4 from "../assets/depoPsi4.jpeg";
+import depoPsi5 from "../assets/depoPsi5.jpeg";
+import depoPsi6 from "../assets/depo6.jpeg";
 
 const faqSupervisao = [
   {
@@ -44,6 +50,12 @@ const depoimentosFotos = [
   marcelleSupervisao,
   niceSupervisao,
   saraSupervisao,
+  depoPsi1,
+  depoPsi2,
+  depoPsi3,
+  depoPsi4,
+  depoPsi5,
+  depoPsi6,
 ];
 
 const Supervisao = () => {

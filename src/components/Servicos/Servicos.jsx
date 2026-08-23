@@ -14,7 +14,7 @@ const Servicos = () => {
   const servicosData = [
     {
       id: "atendimento",
-      titulo: "Atendimento",
+      titulo: "Atendimento psicológico",
       icone: <FaCouch />,
       descricao:
         "Espaço de escuta para mulheres que desejam construir uma vida e uma carreira coerentes com sua história.",

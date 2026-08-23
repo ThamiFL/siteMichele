@@ -115,13 +115,6 @@ const Mentoria = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
           >
             <p>
-              Você sente que chegou o momento de crescer profissionalmente,
-              conquistar uma promoção, assumir uma posição de liderança ou
-              realizar uma transição de carreira, a mentoria de carreira pode
-              oferecer a direção estratégica que você procura.
-            </p>
-
-            <p>
               Minha mentoria de carreira para mulheres integra mais de 15 anos
               de experiência em Psicologia Organizacional, Gestão de Pessoas,
               Desenvolvimento de Lideranças, Psicologia Clínica e Psicanálise.

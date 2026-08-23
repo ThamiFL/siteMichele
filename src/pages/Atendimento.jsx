@@ -1,19 +1,10 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaChevronDown, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
 import { informacoes } from "../data/informacoes";
 import atendimentoImg from "../assets/atendimento-hd.jpg";
 import styles from "./PageTemplate.module.scss";
-
-// Import das fotos dos depoimentos do Atendimento
-import depoPsi1 from "../assets/depoPsi.jpeg";
-import depoPsi2 from "../assets/depoPsi2.jpeg";
-import depoPsi3 from "../assets/depoPci3.jpeg";
-import depoPsi5 from "../assets/depoPsi5.jpeg";
-import depoPsi6 from "../assets/depo6.jpeg";
-
-const depoimentosFotos = [depoPsi1, depoPsi2, depoPsi3, depoPsi5, depoPsi6];
 
 const faqAtendimento = [
   {
@@ -55,19 +46,8 @@ const faqAtendimento = [
 ];
 
 const Atendimento = () => {
-  const [currentFotoIndex, setCurrentFotoIndex] = useState(0);
   const [activeFaqIndex, setActiveFaqIndex] = useState(null);
   const urlWhatsApp = `https://wa.me/${informacoes.whatsapp}?text=${encodeURIComponent("Olá, gostaria de agendar um Atendimento Psicológico Online.")}`;
-
-  const handleNextFoto = () => {
-    setCurrentFotoIndex((prev) => (prev + 1) % depoimentosFotos.length);
-  };
-
-  const handlePrevFoto = () => {
-    setCurrentFotoIndex(
-      (prev) => (prev - 1 + depoimentosFotos.length) % depoimentosFotos.length,
-    );
-  };
 
   const toggleFaq = (index) => {
     setActiveFaqIndex(activeFaqIndex === index ? null : index);
@@ -226,55 +206,6 @@ const Atendimento = () => {
               >
                 Agendar Atendimento
               </a>
-            </div>
-
-            {/* SEÇÃO DE DEPOIMENTOS EM FOTOS (CARROSSEL MANUAL) */}
-            <h3 style={{ textAlign: "center", marginTop: "4rem" }}>
-              O que dizem as clientes atendidas
-            </h3>
-
-            <div className={styles.carouselWrapper}>
-              <button
-                className={styles.navButton}
-                onClick={handlePrevFoto}
-                aria-label="Depoimento Anterior"
-              >
-                <FaChevronLeft />
-              </button>
-
-              <div className={styles.carouselContainer}>
-                <AnimatePresence mode="wait">
-                  <motion.img
-                    key={currentFotoIndex}
-                    src={depoimentosFotos[currentFotoIndex]}
-                    alt={`Depoimento de atendimento ${currentFotoIndex + 1}`}
-                    className={styles.carouselImage}
-                    initial={{ opacity: 0, x: 40 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -40 }}
-                    transition={{ duration: 0.4 }}
-                  />
-                </AnimatePresence>
-              </div>
-
-              <button
-                className={styles.navButton}
-                onClick={handleNextFoto}
-                aria-label="Próximo Depoimento"
-              >
-                <FaChevronRight />
-              </button>
-            </div>
-
-            <div className={styles.dots}>
-              {depoimentosFotos.map((_, idx) => (
-                <button
-                  key={idx}
-                  className={`${styles.dot} ${idx === currentFotoIndex ? styles.active : ""}`}
-                  onClick={() => setCurrentFotoIndex(idx)}
-                  aria-label={`Ir para depoimento ${idx + 1}`}
-                />
-              ))}
             </div>
 
             {/* SANFONA INTERATIVA FAQ */}
