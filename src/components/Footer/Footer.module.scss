@@ -87,9 +87,40 @@
   padding: 1.5rem 0;
   text-align: center;
 
+  .bottomBarContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    @include mobile {
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+  }
+
   p {
     margin: 0;
     font-size: 0.9rem;
     color: rgba($color-white, 0.6);
+  }
+}
+
+.backToTopBtn {
+  background: none;
+  border: 1px solid rgba($color-white, 0.3);
+  color: rgba($color-white, 0.85);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba($color-white, 0.15);
+    color: $color-white;
+    border-color: rgba($color-white, 0.6);
   }
 }

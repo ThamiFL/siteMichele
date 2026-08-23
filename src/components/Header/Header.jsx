@@ -45,17 +45,24 @@ const Header = () => {
     { name: 'Contato', path: '/contato' },
   ];
 
+  const handleNavClick = (path) => {
+    setMenuOpen(false);
+    if (location.pathname === path) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.headerContainer}`}>
         
-        {/* Logo com imagem antes do nome (sem link) */}
-        <div className={styles.logo}>
+        {/* Logo com imagem antes do nome */}
+        <Link to="/" className={styles.logo} onClick={() => handleNavClick('/')}>
           <img src={logoHeader} alt="Psicologia e Carreira Logo" className={styles.logoImg} />
           <div className={styles.logoText}>
             Michele<span>Gonçalves</span>
           </div>
-        </div>
+        </Link>
 
 
         {/* Desktop Menu */}
@@ -66,7 +73,9 @@ const Header = () => {
                 {link.path.startsWith('/#') ? (
                   <a href={link.path}>{link.name}</a>
                 ) : (
-                  <Link to={link.path}>{link.name}</Link>
+                  <Link to={link.path} onClick={() => handleNavClick(link.path)}>
+                    {link.name}
+                  </Link>
                 )}
               </li>
             ))}
@@ -125,7 +134,7 @@ const Header = () => {
                     {link.path.startsWith('/#') ? (
                       <a 
                         href={link.path} 
-                        onClick={() => setMenuOpen(false)}
+                        onClick={() => handleNavClick(link.path)}
                         className={isActive ? styles.activeLink : ''}
                       >
                         {link.name}
@@ -133,7 +142,7 @@ const Header = () => {
                     ) : (
                       <Link 
                         to={link.path}
-                        onClick={() => setMenuOpen(false)}
+                        onClick={() => handleNavClick(link.path)}
                         className={isActive ? styles.activeLink : ''}
                       >
                         {link.name}

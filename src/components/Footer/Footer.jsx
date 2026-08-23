@@ -13,7 +13,11 @@ const Footer = () => {
         
         {/* Coluna 1: Logo e Resumo */}
         <div className={styles.column}>
-          <Link to="/" className={styles.logo}>
+          <Link 
+            to="/" 
+            className={styles.logo}
+            onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })}
+          >
             Michele<span>Gonçalves</span>
           </Link>
           <p className={styles.description}>
@@ -39,6 +43,14 @@ const Footer = () => {
         <div className={styles.column}>
           <h3>Navegação</h3>
           <ul>
+            <li>
+              <Link 
+                to="/" 
+                onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })}
+              >
+                Início
+              </Link>
+            </li>
             <li><Link to="/sobre">Sobre mim</Link></li>
             <li><Link to="/servicos">Serviços</Link></li>
             <li><Link to="/contato">Contato</Link></li>
@@ -57,7 +69,16 @@ const Footer = () => {
       </div>
 
       <div className={styles.bottomBar}>
-        <p>&copy; {year} Michele Gonçalves - {informacoes.profissao}. Todos os direitos reservados.</p>
+        <div className={`container ${styles.bottomBarContainer}`}>
+          <p>&copy; {year} Michele Gonçalves - {informacoes.profissao}. Todos os direitos reservados.</p>
+          <button 
+            className={styles.backToTopBtn} 
+            onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })}
+            aria-label="Voltar ao início"
+          >
+            Voltar ao início ↑
+          </button>
+        </div>
       </div>
     </footer>
   );
