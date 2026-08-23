@@ -108,8 +108,14 @@
       font-size: 0.9rem;
       line-height: 1.65;
       margin-bottom: 0.7rem;
-      text-align: justify;
+      text-align: justify !important;
+      text-justify: inter-word;
     }
+  }
+
+  p {
+    text-align: justify !important;
+    text-justify: inter-word;
   }
 }
 
@@ -182,6 +188,8 @@
   color: #3b4c5e;
   line-height: 1.55;
   box-shadow: 0 2px 8px rgba(23, 36, 57, 0.03);
+  text-align: justify !important;
+  text-justify: inter-word;
 
   @media (max-width: 640px) {
     font-size: 0.83rem;
@@ -226,7 +234,8 @@
     font-size: 1.05rem;
     line-height: 1.7;
     margin-bottom: 1.5rem;
-    text-align: justify;
+    text-align: justify !important;
+    text-justify: inter-word;
   }
 }
 
