@@ -125,3 +125,16 @@ section {
     padding: 3rem 0;
   }
 }
+
+// Ocultar selo/badge do Netlify Drawer
+#netlify-drawer-root,
+#netlify-modal-root,
+[data-netlify-drawer],
+[id*="netlify-drawer"],
+iframe[src*="netlify"],
+.netlify-badge {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
