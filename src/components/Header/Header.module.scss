@@ -6,20 +6,20 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding: 24px 0;
+  padding: 20px 0;
   z-index: 1000;
   transition: $transition-default;
   background-color: transparent;
 
   &.scrolled {
-    padding: 12px 0;
+    padding: 10px 0;
     background-color: rgba($color-white, 0.98);
     backdrop-filter: blur(10px);
     box-shadow: $shadow-light;
   }
 
   @include mobile {
-    padding: 12px 0;
+    padding: 10px 0 !important;
     background-color: rgba($color-white, 0.98);
     backdrop-filter: blur(10px);
     box-shadow: $shadow-light;
@@ -38,12 +38,21 @@
   cursor: default;
   user-select: none;
 
+  @include mobile {
+    gap: 0.4rem;
+    max-width: calc(100% - 45px);
+  }
+
   .logoImg {
-    height: 48px;
+    height: 44px;
     width: auto;
     object-fit: contain;
     transition: height 0.3s ease;
     cursor: default;
+
+    @include mobile {
+      height: 34px !important;
+    }
   }
 
   .logoText {
@@ -52,6 +61,10 @@
     color: $color-deep-green;
     line-height: 1.2;
     cursor: default;
+
+    @include mobile {
+      font-size: 1.1rem;
+    }
 
     span {
       color: $color-sage-green;
@@ -62,7 +75,7 @@
 
 .header.scrolled {
   .logoImg {
-    height: 40px;
+    height: 36px;
   }
 }
 
@@ -115,11 +128,13 @@
   border: none;
   cursor: pointer;
   outline: none;
+  flex-shrink: 0;
 
   @include mobile {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 26px;
   }
 }
 

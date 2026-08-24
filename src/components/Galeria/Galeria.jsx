@@ -30,12 +30,14 @@ import profissi from "../../assets/profissionais.jpeg";
 const galleryData = [
   {
     id: 1,
+    catKey: "palestras",
     category: "Palestra",
     img: palestr1,
     title: "Palestra Saúde Mental — Lagoinha Niterói",
   },
   {
     id: 2,
+    catKey: "cursos",
     category: "Curso",
     img: psico11,
     title:
@@ -43,6 +45,7 @@ const galleryData = [
   },
   {
     id: 3,
+    catKey: "cursos",
     category: "Curso & Liderança",
     img: lideranca,
     title:
@@ -50,6 +53,7 @@ const galleryData = [
   },
   {
     id: 4,
+    catKey: "palestras",
     category: "Palestra",
     img: festiva,
     title:
@@ -57,122 +61,133 @@ const galleryData = [
   },
   {
     id: 5,
+    catKey: "cursos",
     category: "Curso & Liderança",
     img: treain,
     title: "Curso Liderança: Ferramentas Práticas — Empresa Espaço Crescer",
   },
   {
     id: 6,
+    catKey: "cursos",
     category: "Curso",
     img: cursoLi,
     title: "Curso Liderança: Ferramentas Práticas de Desenvolvimento e Gestão",
   },
   {
     id: 7,
+    catKey: "projetos",
     category: "Projeto Corporativo",
     img: projetoEmpre,
     title: "Projeto Empreende Mulher — Palestras para Empreendedoras",
   },
   {
     id: 8,
+    catKey: "projetos",
     category: "Projeto Corporativo",
     img: projetoPrefeitura,
     title: "Projeto Empreende Mulher — Prefeitura de São Gonçalo",
   },
   {
     id: 9,
+    catKey: "projetos",
     category: "Projeto Corporativo",
     img: projetoEmpreende,
     title: "Projeto Empreende Mulher — Encontro de Captação e Desenvolvimento",
   },
   {
     id: 10,
+    catKey: "projetos",
     category: "Projeto Corporativo",
     img: projeto2,
     title: "Projeto Empreende Mulher — Capacitação Profissional",
   },
   {
     id: 11,
+    catKey: "cursos",
     category: "Curso",
     img: recru,
     title: "Curso Recrutamento e Seleção por Competência",
   },
   {
     id: 12,
+    catKey: "cursos",
     category: "Curso & Liderança",
     img: cursoDeLideranca,
     title: "Curso Liderança Operacional — Empresa EBSE",
   },
   {
     id: 13,
+    catKey: "palestras",
     category: "Palestra",
     img: pales,
     title: "Palestra para Empreendedoras — Instituto EnLife 2023",
   },
-
   {
     id: 14,
+    catKey: "palestras",
     category: "Palestra",
     img: assert,
     title: "Capacitação de Liderança -  Comunicação Assertiva",
   },
-
   {
     id: 15,
+    catKey: "palestras",
     category: "Palestra",
     img: amarelo,
     title: "Palestra - Setembro Amarelo",
   },
   {
     id: 16,
+    catKey: "palestras",
     category: "Palestra",
     img: sipat,
     title: "Sipat - Tema Saúde Mental",
   },
-
   {
     id: 17,
+    catKey: "palestras",
     category: "Palestra",
     img: brito,
     title: "Capacitação de Liderança - Brito Contabilidade",
   },
-
   {
     id: 18,
+    catKey: "palestras",
     category: "Palestra",
     img: saude,
     title: "Projeto - Saúde Mental nas empresas",
   },
-
   {
     id: 19,
+    catKey: "palestras",
     category: "Palestra",
     img: comu,
     title: "Comunicação Sem Assédio",
   },
-
   {
     id: 20,
+    catKey: "palestras",
     category: "Palestra",
     img: mental,
     title: "Projeto - Saúde Mental nas empresas",
   },
-
   {
     id: 21,
+    catKey: "palestras",
     category: "Palestra",
     img: lider,
     title: "Treinamento de Liderança",
   },
-
   {
     id: 22,
+    catKey: "palestras",
     category: "Palestra",
     img: treinamento,
     title: "Treinamento de Comunicação",
   },
   {
     id: 23,
+    catKey: "palestras",
     category: "Palestra",
     img: profissi,
     title: "Palestra Saúde Mental - Colégio Odete São Paio",
@@ -180,7 +195,11 @@ const galleryData = [
 ];
 
 const Galeria = () => {
+  const [showAll, setShowAll] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
+
+  const initialCount = 6;
+  const displayedData = showAll ? galleryData : galleryData.slice(0, initialCount);
 
   // Travar o scroll da página de fundo enquanto a foto ampliada estiver aberta
   useEffect(() => {
@@ -206,13 +225,14 @@ const Galeria = () => {
 
         {/* Grade de cartões limpos e alinhados */}
         <div className={styles.galleryGrid}>
-          {galleryData.map((card) => (
+          {displayedData.map((card) => (
             <motion.div
               key={card.id}
               className={styles.galleryCard}
               onClick={() => setSelectedCard(card)}
               whileHover={{ y: -6, scale: 1.02 }}
               transition={{ duration: 0.3 }}
+              layout
             >
               <div className={styles.imgWrapper}>
                 <img src={card.img} alt={card.title} loading="lazy" />
@@ -221,6 +241,18 @@ const Galeria = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Botão Ver Mais Fotos (mostra todas de uma vez ao clicar) */}
+        {!showAll && galleryData.length > initialCount && (
+          <div className={styles.loadMoreWrapper}>
+            <button
+              className={styles.loadMoreBtn}
+              onClick={() => setShowAll(true)}
+            >
+              Ver mais fotos ({galleryData.length - initialCount} restantes)
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Lightbox Modal Ampliada Elegante */}

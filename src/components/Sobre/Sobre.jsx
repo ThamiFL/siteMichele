@@ -41,7 +41,7 @@ const Sobre = ({ isResumo = false }) => {
             Sobre <span>Michele Gonçalves</span>
           </h2>
           <h3 className={styles.subtitle}>
-            Psicóloga | Psicanalista | Especialista em desenvolvimento humano,
+            Psicóloga (CRP 05/40678) | Psicanalista | Especialista em desenvolvimento humano,
             carreira e saúde mental
           </h3>
 
