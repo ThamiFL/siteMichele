@@ -55,7 +55,7 @@ const depoimentosFotos = [
 const Supervisao = () => {
   const [currentFotoIndex, setCurrentFotoIndex] = useState(0);
   const [activeFaqIndex, setActiveFaqIndex] = useState(null);
-  const urlWhatsApp = `https://wa.me/${informacoes.whatsapp}?text=${encodeURIComponent("Olá! Vim pelo site e gostaria de agendar uma sessão de supervisão clínica.")}`;
+  const urlWhatsApp = `https://wa.me/${informacoes.whatsapp}?text=${encodeURIComponent("Olá, gostaria de saber mais sobre a Supervisão Clínica e Mentoria para Psicólogas.")}`;
 
   const handleNextFoto = () => {
     setCurrentFotoIndex((prev) => (prev + 1) % depoimentosFotos.length);
