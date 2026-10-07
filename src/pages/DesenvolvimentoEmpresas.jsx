@@ -53,7 +53,7 @@ const DesenvolvimentoEmpresas = () => {
     setActiveFaqIndex(activeFaqIndex === index ? null : index);
   };
 
-  const urlWhatsApp = `https://wa.me/${informacoes.whatsapp}?text=${encodeURIComponent("Olá, gostaria de conversar sobre palestras e treinamentos para a minha empresa.")}`;
+  const urlWhatsApp = `https://wa.me/${informacoes.whatsapp}?text=${encodeURIComponent("Olá! Vim pelo site e gostaria de agendar uma palestra ou treinamento para a minha empresa.")}`;
 
   return (
     <>

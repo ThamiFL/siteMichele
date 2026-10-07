@@ -12,10 +12,10 @@ export const informacoes = {
   // Mensagens padrão para o WhatsApp
   mensagensWhatsapp: {
     padrao:
-      "Olá! Vim através do seu site e gostaria de saber mais informações sobre seus atendimentos. Poderia me passar mais detalhes?",
+      "Olá! Vim pelo site e gostaria de agendar uma sessão.",
     mentoria:
-      "Olá! Vim através do seu site e tenho interesse na sua mentoria de carreira. Gostaria de saber mais informações sobre como funciona o processo. Aguardo seu retorno.",
+      "Olá! Vim pelo site e gostaria de agendar uma sessão de mentoria de carreira.",
     psicoterapia:
-      "Olá! Vim através do seu site e tenho interesse em iniciar a psicoterapia. Gostaria de saber mais informações sobre como funciona o atendimento. Aguardo seu retorno.",
+      "Olá! Vim pelo site e gostaria de agendar uma sessão de psicoterapia.",
   },
 };

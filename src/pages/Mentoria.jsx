@@ -63,7 +63,7 @@ const Mentoria = () => {
     setActiveFaqIndex(activeFaqIndex === index ? null : index);
   };
 
-  const urlWhatsApp = `https://wa.me/${informacoes.whatsapp}?text=${encodeURIComponent("Olá, gostaria de agendar uma conversa inicial sobre a Mentoria de Carreira.")}`;
+  const urlWhatsApp = `https://wa.me/${informacoes.whatsapp}?text=${encodeURIComponent("Olá! Vim pelo site e gostaria de agendar uma sessão de mentoria de carreira.")}`;
 
   return (
     <>

@@ -47,7 +47,7 @@ const faqAtendimento = [
 
 const Atendimento = () => {
   const [activeFaqIndex, setActiveFaqIndex] = useState(null);
-  const urlWhatsApp = `https://wa.me/${informacoes.whatsapp}?text=${encodeURIComponent("Olá, gostaria de agendar um Atendimento Psicológico Online.")}`;
+  const urlWhatsApp = `https://wa.me/${informacoes.whatsapp}?text=${encodeURIComponent("Olá! Vim pelo site e gostaria de agendar uma sessão.")}`;
 
   const toggleFaq = (index) => {
     setActiveFaqIndex(activeFaqIndex === index ? null : index);
