@@ -29,7 +29,7 @@ const Contato = ({ showPhoto = false }) => {
                 <div>
                   <h4>WhatsApp</h4>
                   <a 
-                    href={`https://wa.me/${informacoes.whatsapp}`} 
+                    href={`https://wa.me/${informacoes.whatsapp}?text=${encodeURIComponent(informacoes.mensagensWhatsapp.padrao)}`} 
                     target="_blank" 
                     rel="noreferrer" 
                     className="btn-primary" 
@@ -89,7 +89,7 @@ const Contato = ({ showPhoto = false }) => {
               <div className={styles.itemContent}>
                 <h4>WhatsApp</h4>
                 <a 
-                  href={`https://wa.me/${informacoes.whatsapp}`} 
+                  href={`https://wa.me/${informacoes.whatsapp}?text=${encodeURIComponent(informacoes.mensagensWhatsapp.padrao)}`} 
                   target="_blank" 
                   rel="noreferrer" 
                   className="btn-primary" 

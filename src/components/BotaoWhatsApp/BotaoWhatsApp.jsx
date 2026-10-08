@@ -13,8 +13,12 @@ const BotaoWhatsApp = () => {
   
   if (location.pathname === '/mentoria') {
     mensagem = informacoes.mensagensWhatsapp.mentoria;
-  } else if (location.pathname === '/psicoterapia') {
+  } else if (location.pathname === '/atendimento' || location.pathname === '/psicoterapia') {
     mensagem = informacoes.mensagensWhatsapp.psicoterapia;
+  } else if (location.pathname === '/supervisao') {
+    mensagem = informacoes.mensagensWhatsapp.supervisao;
+  } else if (location.pathname === '/desenvolvimento-empresas') {
+    mensagem = informacoes.mensagensWhatsapp.empresas;
   }
 
   // Codifica a mensagem para a URL

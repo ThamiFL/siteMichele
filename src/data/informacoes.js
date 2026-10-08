@@ -14,8 +14,12 @@ export const informacoes = {
     padrao:
       "Olá! Vim pelo site e gostaria de agendar uma sessão.",
     mentoria:
-      "Olá! Vim através do seu site e tenho interesse na sua mentoria de carreira. Gostaria de saber mais informações sobre como funciona o processo. Aguardo seu retorno.",
+      "Olá! Vim pelo site e gostaria de agendar uma mentoria de carreira.",
     psicoterapia:
-      "Olá! Vim através do seu site e tenho interesse em iniciar a psicoterapia. Gostaria de saber mais informações sobre como funciona o atendimento. Aguardo seu retorno.",
+      "Olá! Vim pelo site e gostaria de agendar uma sessão de psicoterapia.",
+    supervisao:
+      "Olá! Vim pelo site e gostaria de agendar uma supervisão clínica.",
+    empresas:
+      "Olá! Vim pelo site e gostaria de agendar uma palestra ou treinamento.",
   },
 };
